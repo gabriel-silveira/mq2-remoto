@@ -1,4 +1,4 @@
-# Detecção de incêndio remoto com Arduino e Sensor MQ-2
+# Detecção de incêndio remoto com Arduino Uno e MQ-2
 > **Resumo.** Este artigo descreve o projeto de um sensor de fumaça conectado à internet. O dispositivo descrito no projeto provê segurança emitindo um som e acendendo um LED vermelho de alerta quando detecta um certo nível de fumaça no ambiente. O dispositivo também envia uma mensagem utilizando o protocolo MQTT ao detectar um nível crítico de gás no ambiente.
 ## Introdução
 
