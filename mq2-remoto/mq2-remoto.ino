@@ -7,13 +7,16 @@
 
 int buzzer = 8; // buzzer no pino 8
 
-int ledVermelho = 10;
-int ledAzul = 12;
+int ledAzul = 10;
+int ledVermelho = 11;
+
 
 int PinA0 = A0; // sensor MQ-2 (analógico A0)
 
-int intervalo = 500;
-int limite = 100; // limite para nível normal de gás
+int intervalo = 100;
+int limite = 140; // limite para nível normal de gás
+
+bool alertaEnviado = false;
 
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
@@ -27,8 +30,7 @@ IPAddress ip(192,168,0,101);// ip que quer que sua placa tenha
 EthernetClient client;
 
 // URL
-//char server[] = "www.gabrielsilveira.com.br";
-char server[] = "192.168.0.123";
+char server[] = "dev.gabrielsilveira.com.br";
 // porta
 int portaweb = 80;
 
@@ -77,20 +79,22 @@ void loop() {
     // emite som, liga led vermelho e apaga led azul
     // tone(buzzer, 3000, intervalo / 2);
     
-    digitalWrite(ledVermelho, LOW);
-    digitalWrite(ledAzul, HIGH);
+    digitalWrite(ledVermelho, HIGH);
+    digitalWrite(ledAzul, LOW);
 
     // envia solicitação na API
-    enviarAlerta();
+    if(!alertaEnviado)
+      enviarAlerta(true);
     
   } else {
     
     // desliga som, apaga led vermelho e acende led azul
     // noTone(buzzer);
     
+    digitalWrite(ledAzul, HIGH);
     digitalWrite(ledVermelho, LOW);
-    digitalWrite(ledAzul, LOW);
-    
+
+    // enviarAlerta(false);
   }
 
   // intervalo em milissegundos
@@ -98,20 +102,29 @@ void loop() {
 }
 
 
-void enviarAlerta() {
+void enviarAlerta(bool status) {
   if(client.connect(server, portaweb)) {
 
     Serial.println("Enviando alerta...");
-        
+    
     // manda informações para API
-    // informação que quer mandar
-    client.print("GET /mq2-remoto/api/");
+    if(status) {
+      client.print("GET /alert/1");
+    } else {
+      client.print("GET /alert/0");
+    }
+    
     client.println(" HTTP/1.1");
     client.print("HOST: ");
     client.println(server);
     client.println();
     client.stop();
+    
     Serial.println("Enviado com Sucesso");
+
+    // marca como enviado
+    alertaEnviado = true;
+    
   } else { //caso de erro ao se conectar
     // Finaliza conexão
     client.stop();
