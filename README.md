@@ -6,3 +6,9 @@ Atualmente vivemos em uma era em que a tecnologia já faz parte do nosso cotidia
 
 Na busca por maior segurança, este projeto visa monitorar focos de incêndio através de sensores de fumaça integrados com Arduino Uno e componentes conectados à internet para uso residencial.
 ## Componentes
+* Arduino Uno
+* Ethernet Shield
+* Sensor de gás inflamável MQ-2
+* LED vermelho
+* LED azul
+* 2 resistores 120 Ohms
