@@ -14,12 +14,12 @@ Na busca por maior segurança, este projeto visa monitorar focos de incêndio at
 * 2 resistores 120 Ohms
 ## Aplicação
 Importamos as bibliotecas SPI e Ethernet para comunicação com a internet:
-```console
+```cpp
 #include <SPI.h>
 #include <Ethernet.h>
 ```
 Definimos variáveis para os pinos e outras úteis para a aplicação:
-```console
+```cpp
 int buzzer = 8; // buzzer no pino 8
 
 int ledAzul = 10;
