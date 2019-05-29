@@ -34,7 +34,7 @@ int limite = 140; // limite para nível normal de gás
 bool alertaEnviado = false;
 ```
 Definimos variáveis para conexão de rede:
-```
+```cpp
 // declarando dados de rede
 byte mac[] = {0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
 
