@@ -12,3 +12,24 @@ Na busca por maior segurança, este projeto visa monitorar focos de incêndio at
 * LED vermelho
 * LED azul
 * 2 resistores 120 Ohms
+## Aplicação
+Importamos as bibliotecas SPI e Ethernet para comunicação com a internet:
+```console
+#include <SPI.h>
+#include <Ethernet.h>
+```
+Definimos variáveis para os pinos e outras úteis para a aplicação:
+```
+int buzzer = 8; // buzzer no pino 8
+
+int ledAzul = 10;
+int ledVermelho = 11;
+
+
+int PinA0 = A0; // sensor MQ-2 (analógico A0)
+
+int intervalo = 100;
+int limite = 140; // limite para nível normal de gás
+
+bool alertaEnviado = false;
+```
