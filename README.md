@@ -47,7 +47,7 @@ char server[] = "dev.gabrielsilveira.com.br";
 // porta
 int portaweb = 80;
 ```
-Configurações da aplicação na função setup():
+Inserimos as configurações da aplicação na função setup():
 ```cpp
 
 void setup() {
