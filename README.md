@@ -12,6 +12,9 @@ Na busca por maior segurança, este projeto visa monitorar focos de incêndio at
 * LED vermelho
 * LED azul
 * 2 resistores 120 Ohms
+## API 
+Ao detectar um nível crítico de gás inflamável no ambiente, uma requisição é enviada à API no endereço abaixo enviado **status**, onde status pode ser _true_ ou _false_, indicando para acionar ou não um alerta:
+- http://dev.gabrielsilveira.com.br/alert/{status}
 ## Aplicação
 Importamos as bibliotecas SPI e Ethernet para comunicação com a internet:
 ```cpp
