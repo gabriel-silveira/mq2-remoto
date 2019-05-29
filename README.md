@@ -17,7 +17,7 @@ Importamos as bibliotecas SPI e Ethernet para comunicação com a internet:
 ```console
 #include <SPI.h>
 #include <Ethernet.h>
-```
+```console
 Definimos variáveis para os pinos e outras úteis para a aplicação:
 ```
 int buzzer = 8; // buzzer no pino 8
