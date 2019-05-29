@@ -33,3 +33,18 @@ int limite = 140; // limite para nível normal de gás
 
 bool alertaEnviado = false;
 ```
+Definimos variáveis para conexão de rede:
+```
+// declarando dados de rede
+byte mac[] = {0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
+
+//byte mac[] =   {0xf0, 0x1f, 0xaf, 0x33, 0x62, 0x2f };
+IPAddress ip(192,168,0,101);// ip que quer que sua placa tenha
+EthernetClient client;
+
+// URL
+char server[] = "dev.gabrielsilveira.com.br";
+// porta
+int portaweb = 80;
+```
+
