@@ -6,6 +6,33 @@ Atualmente vivemos em uma era em que a tecnologia já faz parte do nosso cotidia
 
 Na busca por maior segurança, este projeto visa monitorar focos de incêndio através de sensores de fumaça integrados com Arduino Uno e componentes conectados à internet para uso residencial.
 ## Componentes
+
+
+<table width="100%" align="center">
+  <tr>
+    <td align="center" colspan="2">
+      <img height="350" src="https://raw.githubusercontent.com/gabriel-silveira/mq2-remoto/master/imgs/project_mq-2.jpeg" alt="Projeto MQ-2">
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img height="300" src="https://raw.githubusercontent.com/gabriel-silveira/mq2-remoto/master/imgs/uno.jpeg" alt="Arduino Uno">
+    </td>
+    <td align="center">
+      <img height="300" src="https://raw.githubusercontent.com/gabriel-silveira/mq2-remoto/master/imgs/ethernet-shield.jpeg" alt="Ethernet Shield">
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img height="120" src="https://raw.githubusercontent.com/gabriel-silveira/mq2-remoto/master/imgs/mq-2.jpeg" alt="Sensor de gás MQ-2">
+    </td>
+    <td align="center">
+      <img height="60" src="https://raw.githubusercontent.com/gabriel-silveira/mq2-remoto/master/imgs/red-led.jpeg" alt="LED vermelho">
+      <img height="100" src="https://raw.githubusercontent.com/gabriel-silveira/mq2-remoto/master/imgs/resistor-120.jpeg" alt="Resistor de 120 Ohms">
+    </td>
+  </tr>
+</table>
+
 * Arduino Uno
 * Ethernet Shield
 * Sensor de gás inflamável MQ-2
