@@ -1,5 +1,5 @@
 # Detecção remota de incêndio com Arduino Uno e MQ-2
-> **Resumo.** Este artigo descreve o projeto de um sensor de fumaça conectado à internet. O dispositivo descrito no projeto provê segurança emitindo um som e acendendo um LED vermelho de alerta quando detecta um certo nível de fumaça no ambiente. O dispositivo também envia uma mensagem para um celular ao detectar um nível crítico de gás no ambiente através do aplicativo Blynk, sendo possível desativar o alarme pelo memso.
+> **Resumo.** Este artigo descreve o projeto de um sensor de fumaça conectado à internet. O dispositivo descrito no projeto provê segurança emitindo um som e acendendo um LED vermelho de alerta quando detecta um certo nível de fumaça no ambiente. O dispositivo também envia uma mensagem para um celular ao detectar um nível crítico de gás no ambiente através do aplicativo Blynk, sendo possível desativar o alarme pelo mesmo.
 ## Introdução
 
 Atualmente vivemos em uma era em que a tecnologia já faz parte do nosso cotidiano, onde um telefone celular não é utilizado apenas para realizar chamadas, mas é um dispositivo que possibilita tirar fotos, gravar voz e vídeos, jogar e ouvir música. Viajar de um estado para outro, ou até de um país para outro, tornou-se mais fácil e barato. Por isso, podemos estar longe de nossos lares, porém conectados através de nossos celulares. Existem as câmeras IPs, onde uma pessoa pode ver o que acontece em sua residência do outro lado do mundo, em tempo real, tudo isso através da tecnologia.
@@ -13,7 +13,7 @@ Na busca por maior segurança, este projeto visa monitorar focos de incêndio at
 * 1 resistores 120 Ohms
 ## Blynk
 O aplicativo Blynk conta com 3 indicadores visuais de níveis de LPG, CO e fumaça e um botão para desativar o alarme.
-
+![alt text](https://raw.githubusercontent.com/gabriel-silveira/mq2-remoto/master/imgs/blynk_app.jpeg)
 ## Aplicação
 Importamos as bibliotecas SPI, Ethernet para comunicação com a internet e para leitura do MQ-2:
 ```cpp
