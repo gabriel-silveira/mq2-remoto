@@ -69,14 +69,6 @@ void setup()
   timer.setInterval(2000L, gas);
 }
 ```
-Loop principal de processamento do Arduino:
-```cpp
-void loop()
-{
-  Blynk.run();
-  timer.run();
-}
-```
 Aqui está nossa função verifica os níveis de gás e envia o alerta quando um nível crítico é detectado pelo MQ-2:
 ```cpp
 void gas() {
@@ -140,6 +132,14 @@ void gas() {
   Serial.println(lpg);
   Serial.println(co);
   Serial.println(smoke);
+}
+```
+Loop principal de processamento do Arduino:
+```cpp
+void loop()
+{
+  Blynk.run();
+  timer.run();
 }
 ```
 
