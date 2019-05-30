@@ -46,119 +46,100 @@ char auth[] = "f4e68a76871c42fdaa27708e5f7dd560";
 
 SimpleTimer timer;
 ```
-Definimos variáveis para conexão de rede:
-```cpp
-// declarando dados de rede
-byte mac[] = {0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
-
-//byte mac[] =   {0xf0, 0x1f, 0xaf, 0x33, 0x62, 0x2f };
-IPAddress ip(192,168,0,101);// ip que quer que sua placa tenha
-EthernetClient client;
-
-// URL
-char server[] = "dev.gabrielsilveira.com.br";
-// porta
-int portaweb = 80;
-```
 Inserimos as configurações da aplicação na função setup():
 ```cpp
-
-void setup() {
-  
-  // define como entrada
-  pinMode(PinA0, INPUT);
-  
-  pinMode(buzzer, OUTPUT);
+void setup()
+{
   pinMode(ledVermelho, OUTPUT);
-  pinMode(ledAzul, OUTPUT);
-
-  // inicializa a serial
+  pinMode(buzzer, OUTPUT);
+  
+  // Debug console
   Serial.begin(9600);
-  
 
-  Serial.println("Adquirindo IP address Usando DHCP:");
+  pinMode(SDCARD_CS, OUTPUT);
+  digitalWrite(SDCARD_CS, HIGH); // Deselect the SD card
 
-  if(!Ethernet.begin(mac)) {
-    //Caso DHCP Falhe
-    Serial.println("Falha ao Adquirir Ip Via DHCP, Utilizar manual");
-    Ethernet.begin(mac, ip);
-  }
+  Blynk.begin(auth);
+  // You can also specify server:
+  //Blynk.begin(auth, "blynk-cloud.com", 80);
+  //Blynk.begin(auth, IPAddress(192,168,1,100), 8080);
+  // For more options, see Boards_Ethernet/Arduino_Ethernet_Manual example
 
-  Serial.print("Meu IP: ");
-  Serial.println(Ethernet.localIP());
+  mq2.begin();
+  timer.setInterval(2000L, gas);
 }
 ```
-Loop principal:
+Loop principal de processamento do Arduino:
 ```cpp
-void loop() {
-
-  // recebe valor lido no pino analógico A0
-  int valor_analogico = analogRead(PinA0); 
-
-  // exibe valor lido no monitor serial
-  Serial.print("Nível: ");
-  Serial.println(valor_analogico);
-
-  // se valor lido for maior que limite
-  if (valor_analogico > limite) {
-    
-    // emite som, liga led vermelho e apaga led azul
-    // tone(buzzer, 3000, intervalo / 2);
-    
-    digitalWrite(ledVermelho, HIGH);
-    digitalWrite(ledAzul, LOW);
-
-    // envia solicitação na API
-    if(!alertaEnviado)
-      enviarAlerta(true);
-    
-  } else {
-    
-    // desliga som, apaga led vermelho e acende led azul
-    // noTone(buzzer);
-    
-    digitalWrite(ledAzul, HIGH);
-    digitalWrite(ledVermelho, LOW);
-
-    // enviarAlerta(false);
-  }
-  
-  // intervalo em milissegundos
-  delay(intervalo);
+void loop()
+{
+  Blynk.run();
+  timer.run();
 }
 ```
-Aqui está nossa função que envia o alerta quando um nível sensível de gás é detectado pelo MQ-2:
+Aqui está nossa função verifica os níveis de gás e envia o alerta quando um nível crítico é detectado pelo MQ-2:
 ```cpp
-void enviarAlerta(bool status) {
-  if(client.connect(server, portaweb)) {
+void gas() {
+  /*read the values from the sensor, it returns
+    an array which contains 3 values.
+    1 = LPG in ppm
+    2 = CO in ppm
+    3 = SMOKE in ppm
+  */
+  float* values = mq2.read(false); //set it false if you don't want to print the values in the Serial
 
-    Serial.println("Enviando alerta...");
+  //lpg = values[0];
+  lpg = mq2.readLPG();
+  Blynk.virtualWrite(1, lpg);
+  
+  //co = values[1];
+  co = mq2.readCO();
+  Blynk.virtualWrite(2, co);
+  
+  //smoke = values[2];
+  smoke = mq2.readSmoke();
+  Blynk.virtualWrite(3, smoke);
+
+  // desligou pelo botão do Blynk
+  if(alertLigado && !digitalRead(ledVermelho)) {
     
-    // manda informações para API
-    if(status) {
-      client.print("GET /alert/1");
-    } else {
-      client.print("GET /alert/0");
+    // desliga apito
+    noTone(buzzer);
+    
+    // marca o alerta como desligado
+    alertLigado = false;
+  }
+
+  // atingiu um nivel crítico de gás no ambiente
+  if(co > 5000) {
+    
+    // se o alerta não estiver ativado...
+    if(!alertLigado) {
+      
+      // apita
+      tone(buzzer, 1000);
+      
+      // liga led
+      digitalWrite(ledVermelho, HIGH);
+
+      // marca como "alerta ligado"
+      alertLigado = true;
     }
-    
-    client.println(" HTTP/1.1");
-    client.print("HOST: ");
-    client.println(server);
-    client.println();
-    client.stop();
-    
-    Serial.println("Enviado com Sucesso");
-
-    // marca como enviado
-    alertaEnviado = true;
-    
-  } else { //caso de erro ao se conectar
-    // Finaliza conexão
-    client.stop();
-    Serial.println("falha na conexao");
-
-    // delay(5000); //Tempo de espera antes de tentar conectar novamente     
+  } else {
+    // e o alerta está desligado
+    if(!alertLigado) {
+      
+      // desliga led
+      digitalWrite(ledVermelho, LOW);
+      
+      // desliga apito
+      noTone(buzzer);
+    }
   }
+  
+  Serial.println(lpg);
+  Serial.println(co);
+  Serial.println(smoke);
 }
 ```
 
