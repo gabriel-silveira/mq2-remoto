@@ -6,8 +6,8 @@ Atualmente vivemos em uma era em que a tecnologia já faz parte do nosso cotidia
 
 Na busca por maior segurança, este projeto visa monitorar focos de incêndio através de sensores de fumaça integrados com Arduino Uno e componentes conectados à internet para uso residencial.
 ## Componentes
-<p align="center">
-  <table>
+<table width="100%">
+  <tbody>
     <tr>
       <td align="center" colspan="2">
         <img height="350" src="https://raw.githubusercontent.com/gabriel-silveira/mq2-remoto/master/imgs/project_mq-2.jpeg" alt="Projeto MQ-2">
@@ -34,8 +34,8 @@ Na busca por maior segurança, este projeto visa monitorar focos de incêndio at
         <p>LED vermelho e Resistor de 120 Ohms</p>
       </td>
     </tr>
-  </table>
-</p>
+  </tbody>
+</table>
 ## Blynk
 O aplicativo Blynk conta com 3 indicadores visuais de níveis de LPG, CO e fumaça e um botão para desativar o alarme.
 
