@@ -6,35 +6,42 @@ Atualmente vivemos em uma era em que a tecnologia já faz parte do nosso cotidia
 
 Na busca por maior segurança, este projeto visa monitorar focos de incêndio através de sensores de fumaça integrados com Arduino Uno e componentes conectados à internet para uso residencial.
 ## Componentes
-<table width="100%">
-  <tbody>
-    <tr>
-      <td align="center" colspan="2">
-        <img height="350" src="https://raw.githubusercontent.com/gabriel-silveira/mq2-remoto/master/imgs/project_mq-2.jpeg" alt="Projeto MQ-2">
-      </td>
-    </tr>
-    <tr>
-      <td align="center">
-        <img height="300" src="https://raw.githubusercontent.com/gabriel-silveira/mq2-remoto/master/imgs/uno.jpeg" alt="Arduino Uno">
-        <p>Arduino Uno</p>
-      </td>
-      <td align="center">
-        <img height="300" src="https://raw.githubusercontent.com/gabriel-silveira/mq2-remoto/master/imgs/ethernet-shield.jpeg" alt="Ethernet Shield">
-        <p>Ethernet Shield</p>
-      </td>
-    </tr>
-    <tr>
-      <td align="center">
-        <img height="120" src="https://raw.githubusercontent.com/gabriel-silveira/mq2-remoto/master/imgs/mq-2.jpeg" alt="Sensor de gás MQ-2">
-        <p>Sensor de gás inflamável MQ-2</p>
-      </td>
-      <td align="center">
-        <img height="60" src="https://raw.githubusercontent.com/gabriel-silveira/mq2-remoto/master/imgs/red-led.jpeg" alt="LED vermelho">
-        <img height="100" src="https://raw.githubusercontent.com/gabriel-silveira/mq2-remoto/master/imgs/resistor-120.jpeg" alt="Resistor de 120 Ohms">
-        <p>LED vermelho e Resistor de 120 Ohms</p>
-      </td>
-    </tr>
-  </tbody>
+<table>
+  <tr>
+    <td align="center" colspan="2">
+      <img height="350" src="https://raw.githubusercontent.com/gabriel-silveira/mq2-remoto/master/imgs/project_mq-2.jpeg" alt="Projeto MQ-2">
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img height="300" src="https://raw.githubusercontent.com/gabriel-silveira/mq2-remoto/master/imgs/uno.jpeg" alt="Arduino Uno">
+      <p>Arduino Uno</p>
+    </td>
+    <td align="center">
+      <img height="300" src="https://raw.githubusercontent.com/gabriel-silveira/mq2-remoto/master/imgs/ethernet-shield.jpeg" alt="Ethernet Shield">
+      <p>Ethernet Shield</p>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img height="120" src="https://raw.githubusercontent.com/gabriel-silveira/mq2-remoto/master/imgs/mq-2.jpeg" alt="Sensor de gás MQ-2">
+      <p>Sensor de gás inflamável MQ-2</p>
+    </td>
+    <td align="center">
+      <img height="120" src="https://raw.githubusercontent.com/gabriel-silveira/mq2-remoto/master/imgs/buzzer.jpg" alt="Buzzer 5V">
+      <p>Buzzer 5V</p>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img height="80" src="https://raw.githubusercontent.com/gabriel-silveira/mq2-remoto/master/imgs/red-led.jpeg" alt="LED vermelho">
+      <p>LED vermelho</p>
+    </td>
+    <td align="center">
+        <img height="120" src="https://raw.githubusercontent.com/gabriel-silveira/mq2-remoto/master/imgs/resistor-120.jpeg" alt="Resistor de 120 Ohms">
+      <p>Resistor de 120 Ohms</p>
+    </td>
+  </tr>
 </table>
 ## Blynk
 O aplicativo Blynk conta com 3 indicadores visuais de níveis de LPG, CO e fumaça e um botão para desativar o alarme.
