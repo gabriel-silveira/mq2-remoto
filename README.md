@@ -43,6 +43,7 @@ Na busca por maior segurança, este projeto visa monitorar focos de incêndio at
     </td>
   </tr>
 </table>
+
 ## Blynk
 O aplicativo Blynk conta com 3 indicadores visuais de níveis de LPG, CO e fumaça e um botão para desativar o alarme.
 
