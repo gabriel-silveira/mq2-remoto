@@ -18,7 +18,6 @@ O aplicativo Blynk conta com 3 indicadores visuais de níveis de LPG, CO e fuma�
   <img src="https://raw.githubusercontent.com/gabriel-silveira/mq2-remoto/master/imgs/blynk_app.jpeg">
 </p>
 
-![alt text](https://raw.githubusercontent.com/gabriel-silveira/mq2-remoto/master/imgs/blynk_app.jpeg)
 ## Aplicação
 Importamos as bibliotecas SPI, Ethernet para comunicação com a internet e para leitura do MQ-2:
 ```cpp
