@@ -11,9 +11,9 @@ Na busca por maior segurança, este projeto visa monitorar focos de incêndio at
 * Sensor de gás inflamável MQ-2
 * LED vermelho
 * 1 resistores 120 Ohms
-## API
-Ao detectar um nível crítico de gás inflamável no ambiente, uma requisição é enviada à API no endereço abaixo enviado **status**, onde status pode ser _true_ ou _false_, indicando para acionar ou não um alerta:
-- http://dev.gabrielsilveira.com.br/alert/{status}
+## Blynk
+O aplicativo Blynk conta com 3 indicadores visuais de níveis de LPG, CO e fumaça e um botão para desativar o alarme.
+
 ## Aplicação
 Importamos as bibliotecas SPI, Ethernet para comunicação com a internet e para leitura do MQ-2:
 ```cpp
