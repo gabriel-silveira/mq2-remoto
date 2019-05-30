@@ -69,7 +69,7 @@ void setup()
   timer.setInterval(2000L, gas);
 }
 ```
-Aqui está nossa função verifica os níveis de gás e envia o alerta quando um nível crítico é detectado pelo MQ-2:
+Está é a função que verifica os níveis de gás e envia o alerta quando um nível crítico é detectado pelo MQ-2:
 ```cpp
 void gas() {
   /*read the values from the sensor, it returns
