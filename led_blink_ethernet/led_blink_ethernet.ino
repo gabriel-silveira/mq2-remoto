@@ -100,18 +100,19 @@ void gas() {
   //smoke = values[2];
   smoke = mq2.readSmoke();
   Blynk.virtualWrite(3, smoke);
-  
-  // imprime o nível no serial
-  Serial.println(co);
 
   // desligou pelo botão do Blynk
-  if(alertLigado && digitalRead(ledVermelho == LOW)) {
+  if(alertLigado && !digitalRead(ledVermelho)) {
+    
     // desliga apito
     noTone(buzzer);
+    
+    // marca o alerta como desligado
+    alertLigado = false;
   }
 
   // atingiu um nivel crítico de gás no ambiente
-  if(co > 20000) {
+  if(co > 5000) {
     
     // se o alerta não estiver ativado...
     if(!alertLigado) {
@@ -137,9 +138,9 @@ void gas() {
     }
   }
   
-  //Serial.println(lpg);
-  //Serial.println(co);
-  //Serial.println(smoke);
+  Serial.println(lpg);
+  Serial.println(co);
+  Serial.println(smoke);
 }
 
 void loop()
