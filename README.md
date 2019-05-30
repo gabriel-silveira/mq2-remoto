@@ -13,6 +13,11 @@ Na busca por maior segurança, este projeto visa monitorar focos de incêndio at
 * 1 resistores 120 Ohms
 ## Blynk
 O aplicativo Blynk conta com 3 indicadores visuais de níveis de LPG, CO e fumaça e um botão para desativar o alarme.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/gabriel-silveira/mq2-remoto/master/imgs/blynk_app.jpeg">
+</p>
+
 ![alt text](https://raw.githubusercontent.com/gabriel-silveira/mq2-remoto/master/imgs/blynk_app.jpeg)
 ## Aplicação
 Importamos as bibliotecas SPI, Ethernet para comunicação com a internet e para leitura do MQ-2:
