@@ -19,7 +19,7 @@ O aplicativo Blynk conta com 3 indicadores visuais de níveis de LPG, CO e fuma�
 </p>
 
 ## Aplicação
-Importamos as bibliotecas SPI, Ethernet para comunicação com a internet, para o aplicativo Blynk e para leitura do MQ-2:
+Importamos as bibliotecas SPI e Ethernet (para comunicação com a internet), Blynk e MQ-2:
 ```cpp
 #include <SPI.h>
 #include <Ethernet.h>
