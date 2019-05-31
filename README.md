@@ -69,7 +69,7 @@ int lpg, co, smoke;
 MQ2 mq2(pin);
 
 
-char auth[] = "f4e68a76871c42fdaa27708e5f7dd560";
+char auth[] = "insira_aqui_seu_token_de_autenticação";
 
 
 #define W5100_CS  10
