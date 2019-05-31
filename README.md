@@ -69,8 +69,6 @@ int lpg, co, smoke;
 MQ2 mq2(pin);
 
 
-// You should get Auth Token in the Blynk App.
-// Go to the Project Settings (nut icon).
 char auth[] = "f4e68a76871c42fdaa27708e5f7dd560";
 
 
@@ -86,17 +84,12 @@ void setup()
   pinMode(ledVermelho, OUTPUT);
   pinMode(buzzer, OUTPUT);
   
-  // Debug console
   Serial.begin(9600);
 
   pinMode(SDCARD_CS, OUTPUT);
   digitalWrite(SDCARD_CS, HIGH); // Deselect the SD card
 
   Blynk.begin(auth);
-  // You can also specify server:
-  //Blynk.begin(auth, "blynk-cloud.com", 80);
-  //Blynk.begin(auth, IPAddress(192,168,1,100), 8080);
-  // For more options, see Boards_Ethernet/Arduino_Ethernet_Manual example
 
   mq2.begin();
   timer.setInterval(2000L, gas);
@@ -105,23 +98,14 @@ void setup()
 Está é a função que verifica os níveis de gás e envia o alerta quando um nível crítico é detectado pelo MQ-2:
 ```cpp
 void gas() {
-  /*read the values from the sensor, it returns
-    an array which contains 3 values.
-    1 = LPG in ppm
-    2 = CO in ppm
-    3 = SMOKE in ppm
-  */
-  float* values = mq2.read(false); //set it false if you don't want to print the values in the Serial
+  float* values = mq2.read(false);
 
-  //lpg = values[0];
   lpg = mq2.readLPG();
   Blynk.virtualWrite(1, lpg);
   
-  //co = values[1];
   co = mq2.readCO();
   Blynk.virtualWrite(2, co);
   
-  //smoke = values[2];
   smoke = mq2.readSmoke();
   Blynk.virtualWrite(3, smoke);
 
