@@ -4,7 +4,7 @@
 
 Atualmente vivemos em uma era em que a tecnologia já faz parte do nosso cotidiano, onde um telefone celular não é utilizado apenas para realizar chamadas, mas é um dispositivo que possibilita tirar fotos, gravar voz e vídeos, jogar e ouvir música. Viajar de um estado para outro, ou até de um país para outro, tornou-se mais fácil e barato. Por isso, podemos estar longe de nossos lares, porém conectados através de nossos celulares. Existem as câmeras IPs, onde uma pessoa pode ver o que acontece em sua residência do outro lado do mundo, em tempo real, tudo isso através da tecnologia.
 
-Na busca por maior segurança este projeto visa monitorar remotamente, por meio de aplicativo de celular, possíveis focos de incêndio através de sensores de fumaça integrados com Arduino Uno e componentes conectados à internet para uso residencial. Confira abaixo as descrições da solução.
+Na busca por maior segurança este projeto abrange o monitoramento remoto, por meio de aplicativo de celular, possíveis focos de incêndio através de sensores de fumaça integrados com Arduino Uno e componentes conectados à internet para uso residencial. Confira abaixo as descrições da solução.
 ## Componentes
 <table>
   <tr>
