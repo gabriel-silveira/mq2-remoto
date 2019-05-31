@@ -87,7 +87,7 @@ void setup()
   Serial.begin(9600);
 
   pinMode(SDCARD_CS, OUTPUT);
-  digitalWrite(SDCARD_CS, HIGH); // Deselect the SD card
+  digitalWrite(SDCARD_CS, HIGH);
 
   Blynk.begin(auth);
 
